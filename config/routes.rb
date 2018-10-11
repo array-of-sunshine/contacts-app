@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   # verb "/urls" => "namespace/controllers#action"
   namespace :api do
     get '/one_contact' => 'contacts#show_contact'
+    get '/all_contacts' => 'contacts#every_contact'
   end
 end
