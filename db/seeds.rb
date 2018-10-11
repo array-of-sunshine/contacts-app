@@ -8,13 +8,4 @@
 
 100.times do
   p Faker::Name.name
-  # contact3 = Contact.new(first_name: Faker::Name.name, last_name: "johnson", email: "aosdjfa", phone_number: "097654")
-  # contact3.save
 end
-# contact3 = Contact.new(first_name: "jason", last_name: "williams", email: "somasdhf", phone_number: "2345678")
-# contact3.save
-
-
-# contact3 = Contact.new(first_name: "jason", last_name: "williams", email: "somasdhf", phone_number: "2345678")
-# contact3.save
-
