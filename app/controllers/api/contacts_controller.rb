@@ -1,12 +1,13 @@
 class Api::ContactsController < ApplicationController
-  def show_contact
+  def show
     # get some data from the db, and show it to the user
-    @contact = Contact.first
-    render "contact.json.jbuilder"
+    contact_id = params[:id]
+    @contact = Contact.find_by(id: contact_id)
+    render "show.json.jbuilder"
   end
 
-  def every_contact
+  def index
     @contacts = Contact.all
-    render "complete_list_of_contacts.json.jbuilder"
+    render "index.json.jbuilder"
   end
 end
