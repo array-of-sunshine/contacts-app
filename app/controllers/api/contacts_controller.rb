@@ -7,6 +7,8 @@ class Api::ContactsController < ApplicationController
   end
 
   def index
+    p 'current_user' * 10
+    p current_user
     @contacts = Contact.all
     render "index.json.jbuilder"
   end
