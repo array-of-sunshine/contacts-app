@@ -9,7 +9,8 @@ class Api::ContactsController < ApplicationController
   def index
     p 'current_user' * 10
     p current_user
-    @contacts = Contact.all
+    # @contacts = Contact.where(user_id: current_user.id)
+    @contacts = current_user.contacts
     render "index.json.jbuilder"
   end
 
@@ -20,7 +21,8 @@ class Api::ContactsController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       phone_number: params[:phone_number],
-      bio: params[:bio]
+      bio: params[:bio],
+      user_id: current_user.id
     )
     @contact.save
     render "show.json.jbuilder"
