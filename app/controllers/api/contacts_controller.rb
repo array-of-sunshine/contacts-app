@@ -6,11 +6,17 @@ class Api::ContactsController < ApplicationController
     render "show.json.jbuilder"
   end
 
+  # authentication
   def index
-    p 'current_user' * 10
-    p current_user
-    # @contacts = Contact.where(user_id: current_user.id)
-    @contacts = current_user.contacts
+    @contacts = Contact.all
+    # p 'current_user' * 10
+    # p current_user
+    # # @contacts = Contact.where(user_id: current_user.id)
+    # if current_user
+    #   @contacts = current_user.contacts
+    # else
+    #   @contacts = []
+    # end
     render "index.json.jbuilder"
   end
 
