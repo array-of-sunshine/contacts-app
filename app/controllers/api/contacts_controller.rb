@@ -8,15 +8,22 @@ class Api::ContactsController < ApplicationController
 
   # authentication
   def index
-    @contacts = Contact.all
-    # p 'current_user' * 10
-    # p current_user
-    # # @contacts = Contact.where(user_id: current_user.id)
-    # if current_user
-    #   @contacts = current_user.contacts
-    # else
-    #   @contacts = []
-    # end
+    # show all the contacts in a particular group
+    # find the group
+    # group.contacts
+
+
+    # # show all the contacts that belong to a current_user
+    p 'current_user' * 10
+    p current_user
+    # @contacts = Contact.where(user_id: current_user.id)
+    if current_user
+      group = Group.find_by(name: params[:group_name])
+      @contacts = group.contacts
+      @contacts = @contacts.where(user_id: current_user.id)
+    else
+      @contacts = []
+    end
     render "index.json.jbuilder"
   end
 
